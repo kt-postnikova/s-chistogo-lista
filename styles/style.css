@@ -1,3 +1,10 @@
+.page {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  background-color: #1e1e1e;
+}
+
 h1,
 h2,
 h3,
@@ -12,16 +19,11 @@ blockquote {
   padding: 0;
 }
 
-.page {
-  background-color: #1e1e1e;
-  font-family: 'Inter';
-  margin: 0;
-}
-
 .content-section {
-  width: 360px;
-  margin: 0 auto;
   box-sizing: border-box;
+  width: 360px;
+  min-height: 100px;
+  margin: auto;
 }
 
 .content-section_theme_dark {
@@ -37,63 +39,66 @@ blockquote {
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   padding: 24px 20px;
 }
 
-.header__logo-image {
+.header__logo {
+  display: block;
+  /*потому что тег а инлайновый (строчный), не воспринимает размеры*/
   width: 78px;
+}
+
+.header__logo-image {
+  width: 100%;
 }
 
 .header__menu-list {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  row-gap: 12px;
+  gap: 12px;
   list-style: none;
 }
 
-.header__menu-item {
-  border-bottom: 1px solid #F5F5F5;
-}
-
-.header__menu-item_active {
-  border: none;
-}
-
 .header__menu-link {
-  text-decoration: none;
   color: #F5F5F5;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+/* вложенный тег: когда наша ссылка header__menu-link вложена с таким
+(header__menu-item_active) классом, то у этой ссылки сбрось text-decoration */
+.header__menu-item_active .header__menu-link {
+  text-decoration: none;
 }
 
 .cover {
-  padding: 30px 20px 0 20px;
-  min-height: 100%;
+  padding: 7px 24px 32px 20px;
   background-image: url(../images/cover.svg);
-  background-size: 95% auto;
   background-repeat: no-repeat;
-  background-position: 100% 100%;
+  background-position: right center;
+  background-size: 95% auto;
 }
 
 .cover__title {
-  display: flex;
-  flex-direction: column;
-  font-family: 'EB Garamond';
-  font-size: 72px;
-  font-style: normal;
+  width: 100%;
+  color: #fff;
+  font-family: 'EB Garamond', serif;
   font-weight: 400;
-  line-height: 100%;
+  font-size: 72px;
+  line-height: 1;
 }
 
-/* .accent-span {
-  text-align: left;
-} */
+.accent-span {
+  display: block;
+}
 
 .text-center {
-  align-self: center;
+  text-align: center;
 }
 
 .text-right {
-  align-self: flex-end;
+  text-align: right;
 }
 
 .intro {
@@ -102,32 +107,32 @@ blockquote {
 
 .intro__heading {
   display: flex;
+  justify-content: space-between;
+  gap: 22px;
+  color: #ccc;
+  font-size: 16px;
 }
 
 .intro__title {
-  color: #CCC;
-  font-size: 16px;
   font-weight: 400;
-  line-height: 120%;
+  font-size: 16px;
+  line-height: 1.2;
 }
 
 .intro__date {
-  color: #CCC;
   font-size: 16px;
-  font-weight: 400;
-  line-height: 120%;
+  line-height: 1.2;
   white-space: nowrap;
 }
 
 .intro__main-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
   color: #F5F5F5;
   font-size: 16px;
-  font-weight: 400;
-  line-height: 21.6px;
-}
-
-.intro__main-paragraph {
-  margin-top: 24px;
+  line-height: 1.35;
 }
 
 .reasons {
@@ -135,29 +140,24 @@ blockquote {
 }
 
 .content-section__subtitle {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 32px;
-  font-family: 'EB Garamond';
-  font-size: 28px;
+  font-family: 'EB Garamond', serif;
   font-weight: 500;
-  line-height: 115%;
+  font-size: 28px;
+  line-height: 1.15;
 }
 
 .content-section__introduction {
-  font-family: Inter;
+  margin: 0 0 32px;
   font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 27px;
-  margin-bottom: 32px;
+  line-height: 1.35;
 }
 
 .content-section__list {
   display: flex;
   flex-direction: column;
-  row-gap: 16px;
-  margin-left: 16px;
+  gap: 16px;
+  padding: 0 0 0 16px;
 }
 
 .content-section__list-accent {
@@ -169,10 +169,10 @@ blockquote {
 }
 
 .cards-list {
-  list-style: none;
   display: flex;
   flex-direction: column;
-  row-gap: 32px;
+  gap: 32px;
+  list-style: none;
 }
 
 .card {
@@ -191,22 +191,22 @@ blockquote {
 }
 
 .card__author-photo {
+  display: block;
   width: 100px;
-  margin-bottom: 8px;
+  border-radius: 50%;
 }
 
 .card__author-name {
-  font-size: 16px;
+  margin: 8px 0 0;
   font-weight: 700;
-  margin-bottom: 8px;
 }
 
 .card__title {
-  font-family: 'EB Garamond';
-  font-size: 22px;
+  margin: 8px auto;
+  font-family: 'EB Garamond', serif;
   font-weight: 500;
-  margin-bottom: 8px;
-  line-height: 135%;
+  font-size: 22px;
+  line-height: 1.35;
 }
 
 .card__text {
@@ -215,23 +215,22 @@ blockquote {
 }
 
 .footer {
-  padding: 20px;
   display: flex;
   justify-content: space-between;
-}
-
-.footer__copy {
-  font-size: 16px;
-  line-height: 135%;
+  align-items: center;
+  border-top: 1px solid #fee42a;
+  padding: 20px;
 }
 
 .footer__links {
-  list-style: none;
   display: flex;
-  column-gap: 16px;
+  gap: 16px;
+  list-style: none;
 }
 
-.footer__link {
+.footer__links a {
   color: #F5F5F5;
+  font-size: 14px;
+  line-height: 1.25;
   text-decoration: none;
 }
